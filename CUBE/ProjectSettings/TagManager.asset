@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Point_Back
+  - Point_Front
+  - Point_Left
+  - Point_Bottom
+  - Point_Right
+  - Point_Top
+  - Number
   layers:
   - Default
   - TransparentFX

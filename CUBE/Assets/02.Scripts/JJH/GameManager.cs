@@ -1,14 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance = null;
+
     public GameObject pointGroup;
     public GameObject numberGroup;
-
+    public int countNumber = 1;
+    
     private List<Transform> listPointGroup = new List<Transform>();
     private List<NumberControll> listNumberGroup = new List<NumberControll>();
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -24,23 +33,23 @@ public class GameManager : MonoBehaviour
             listNumberGroup[i].Text((i + 1).ToString());
             switch (listPointGroup[i].gameObject.tag)
             {
-                case "Cube_Top":
-                    listNumberGroup[i].transform.rotation = Quaternion.EulerRotation(-90.0f, 90.0f, 0f);
+                case "Point_Top":
+                    listNumberGroup[i].transform.Rotate(0, 180.0f, 180.0f);
                     break;
-                case "Cube_Bottom":
+                case "Point_Bottom":
 
                     break;
-                case "Cube_Left":
-
+                case "Point_Left":
+                    listNumberGroup[i].transform.Rotate(-90.0f, -90.0f, 0);
                     break;
-                case "Cube_Right":
-
+                case "Point_Right":
+                    listNumberGroup[i].transform.Rotate(-90.0f, 90.0f, 0);
                     break;
-                case "Cube_Front":
-
+                case "Point_Front":
+                    listNumberGroup[i].transform.Rotate(-90.0f, 0, 0);
                     break;
-                case "Cube_Back":
-
+                case "Point_Back":
+                    listNumberGroup[i].transform.Rotate(-90.0f, 180.0f, 0);
                     break;
                 default:
                     break;

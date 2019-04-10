@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 8493555600276593083}
   m_Layer: 0
   m_Name: Button_Number
-  m_TagString: Button
+  m_TagString: Number
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -192,7 +192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d14332ee082ac448499dbfbf6ee8e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: {fileID: 0}
 --- !u!136 &7094919826302030022
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -281,7 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
