@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/01.Scenes/Cube_LYG.unity
+- path: Assets/01.Scenes/Cube_JJH.unity
   isLoaded: 1
   isActive: 1
