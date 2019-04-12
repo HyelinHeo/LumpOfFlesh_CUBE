@@ -6,29 +6,63 @@ using UnityEngine.EventSystems;
 
 public class NumberControll : MonoBehaviour, IPointerClickHandler
 {
-    private Text number;
     private int num = 0;
-
-    private void Awake()
-    {
-        number = GetComponentInChildren<Text>();
-    }
+    private WALL wall = WALL.BACK;
 
     public void Text( string value)
     {
-        number.text = value;
+       // number.text = value;
         num = int.Parse(value);
+    }
+
+    public void SetWallTag(string strWall)
+    {
+        switch (strWall)
+        {
+            case "Point_Top":
+                wall = WALL.TOP;
+                break;
+            case "Point_Bottom":
+                wall = WALL.BOTTOM;
+                break;
+            case "Point_Left":
+                wall = WALL.LEFT;
+                break;
+            case "Point_Right":
+                wall = WALL.RIGHT;
+                break;
+            case "Point_Front":
+                wall = WALL.FRONT;
+                break;
+            case "Point_Back":
+                wall = WALL.BACK;
+                break;
+            default:
+                break;
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(gameObject.tag.Equals("Number"))
+        Debug.Log("number");
+        if (gameObject.tag.Equals("Number"))
         {
            if(num == GameManager.instance.countNumber)
             {
+                GameManager.instance.ClickPointGroup(this);
                 gameObject.SetActive(false);
-                GameManager.instance.countNumber++;
+
+                if(GameManager.instance.listSize == 18)
+                {
+                    GameManager.instance.spider.transform.position = transform.position + new Vector3(0, 0.2f, 0);
+                    GameManager.instance.SetSpiderRotation(wall);
+                }
             }
         }
+    }
+
+    public int GetNumber()
+    {
+        return num;
     }
 }
